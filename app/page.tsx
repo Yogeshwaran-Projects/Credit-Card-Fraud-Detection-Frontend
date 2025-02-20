@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Shield, Zap, Users, ArrowRight, Sun, Moon } from "lucide-react"
 import { useTheme } from "./theme-provider"
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards"
+
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme()
@@ -41,11 +43,9 @@ export default function Home() {
               Protecting your transactions with advanced AI and machine learning technology.
             </p>
             <div className="mt-6 space-x-4">
-            <Button asChild>
-  <a href="http://localhost:8501/">Try Demo</a>
-</Button>
-
-
+              <Button asChild>
+                <a href="http://localhost:8501/">Try Our Model</a>
+              </Button>
               <Button variant="outline" asChild>
                 <Link href="#how-it-works">Learn More</Link>
               </Button>
@@ -55,35 +55,17 @@ export default function Home() {
         <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800 px-4 sm:px-8 md:px-12 lg:px-16">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-8">How It Works</h2>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-                <CardHeader>
-                  <Zap className="h-8 w-8 mb-2" />
-                  <CardTitle>Real-time Analysis</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  Our system analyzes transactions in real-time, using advanced algorithms to detect suspicious activity.
-                </CardContent>
-              </Card>
-              <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-                <CardHeader>
-                  <Shield className="h-8 w-8 mb-2" />
-                  <CardTitle>Machine Learning</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  We employ state-of-the-art machine learning models that continuously adapt to new fraud patterns.
-                </CardContent>
-              </Card>
-              <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-                <CardHeader>
-                  <Users className="h-8 w-8 mb-2" />
-                  <CardTitle>User Behavior Profiling</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  By understanding normal user behavior, we can quickly identify and flag unusual transactions.
-                </CardContent>
-              </Card>
-            </div>
+            <InfiniteMovingCards
+  items={[
+    { quote: "Detect fraudulent transactions in real-time.", name: "AI Security Team", title: "Machine Learning Experts" },
+    { quote: "Our ML models analyze spending patterns to flag suspicious activity.", name: "Fraud Detection Team", title: "Data Scientists" },
+    { quote: "Adaptive learning keeps the system updated against evolving fraud tactics.", name: "Fintech Innovators", title: "AI Engineers" },
+    { quote: "Seamless integration with banking systems for instant alerts.", name: "Tech Security Division", title: "Software Architects" },
+    { quote: "98% accuracy in identifying fraud, reducing financial losses.", name: "Risk Assessment Team", title: "Cybersecurity Specialists" }
+  ]}
+/>
+
+
           </div>
         </section>
         <section id="about-us" className="w-full py-12 md:py-24 lg:py-32 px-4 sm:px-8 md:px-12 lg:px-16">
